@@ -1,0 +1,48 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Poker</title>
+</head>
+<body>
+    <script>
+        //產生一副牌
+        var poker = new Array(52);
+        for (var i = 1; i <= poker.length; i++) {
+            poker[i - 1] = i;
+        }
+
+        //洗牌
+        var tmp = "";
+        var t = 0;
+        for (var i = 0; i < poker.length; i++) {
+            t = Math.floor((Math.random() * 51) + 1);
+            tmp = poker[i];
+            poker[i] = poker[t];
+            poker[t] = tmp;
+        }
+
+        //發牌
+        var p1 = "", p2 = "", p3 = "", p4 = "";
+        for (var i = 0; i < poker.length; i++) {
+            switch (i % 4) {
+                case 0:
+                    p1 += "<img src=" + poker[i] + ".jpg' />";
+                    break;
+                case 1:
+                    p2 += "<img src=" + poker[i] + ".jpg' />";
+                    break;
+                case 2:
+                    p3 += "<img src=" + poker[i] + ".jpg' />";
+                    break;
+                case 3:
+                    p4 += "<img src=" + poker[i] + ".jpg' />";
+                    break;
+            }
+        }
+        document.write("玩家1:" + p1 + "<br>玩家2:" + p2 + "<br>玩家3:" + p3 + "<br>玩家4:" + p4);
+    </script>
+</body>
+</html>
